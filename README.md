@@ -9,7 +9,7 @@ Singularity component for splitting a bam cell by cell barcode
 To build singularity image
 
 ```
-singularity build --remote split_bams.simg Singularityfile.def
+singularity build --remote split_bam.sif docker://mawiens/split_bam
 ```
 
 To run the container, mount the directories containing the input files and output file location and run
