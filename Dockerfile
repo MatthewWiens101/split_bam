@@ -18,3 +18,6 @@ ADD . /workspace
 
 ENTRYPOINT [ "/workspace/split_bam_cells.sh" ]
 
+# build with:
+# docker build -t split_bam .
+

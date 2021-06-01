@@ -5,6 +5,10 @@
 #   -i: index the bam files after splitting
 # requires: python3 with pysam (and other dependencies) and samtools
 
+set -eu
+
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 path_to_bam=""
 output_dir=""
 path_to_barcodes=""
@@ -65,7 +69,7 @@ if [ ! -d "${output_dir}/split_bams" ]
 then
   mkdir ${output_dir}/split_bams
 fi
-python3 split_script.py -b "${output_dir}/sorted.bam" -o "${output_dir}/split_bams" -c "${path_to_barcodes}"
+python3 ${script_dir}/src/split_script.py -b "${output_dir}/sorted.bam" -o "${output_dir}/split_bams" -c "${path_to_barcodes}"
 echo "done splitting"
 #rm ${output_dir}/sorted.sam
 if [ "$index" = true ]
